@@ -18,6 +18,7 @@
     1. [Docs.](#docs)
     2. [Vids.](#vids)
 
+<br>
 
 ## Porquê SSH e este documento?
 1. SSH (Secure Shell Protocol), é uma forma de comunicação com segurança em mente que permite, por exemplo, acessos remotos entre computadores, servidores, etc. Este protocolo de comunicação fornece também uma robusta autenticação e protecção durante a comunicação de dados com uma forte encriptação.
@@ -32,7 +33,8 @@
 4. Este documento não é um guia ou tutorial de SSH. São notas pessoais de acordo com o título para máquinas Linux.  
 Se tivermos que lidar de vez em quando com configurações e comunicações básicas em SSH, é fácil esquecer certos conceitos, configurações, etc. Como a memória nem sempre pode estar presente, resolvi escrever em formato de notas para ser mais fácil a consulta ou "reconsulta".   
 Optei pela língua portuguesa por diversas razões. Uma delas é porque em  inglês já existe muita documentação acerca do tema. Assim sendo, fica também como tentativa de que possa ser útil à comunidade de língua Portuguesa
- 
+
+<br>
 
 ## Os diferentes ficheiros de configurações SSH
 
@@ -94,8 +96,7 @@ A meu ver, as permissoes do directório `.ssh` e seus ficheiros devem ser as seg
     - A opção mais actual (os com sistemd) será ver os logs no journalctl `journalctl -u ssh` ou `sshd`, conforme OS. Também pode ser útil seguir os logs em tempo real com a opção `-f` de *follow*, `journalctl -fu sshd`  
   - Mais, por exemplo, em [Wow to Troubleshoot SSH Connectivity Issues , da DigitalOcean.](https://docs.digitalocean.com/support/how-to-troubleshoot-ssh-connectivity-issues/)
 
-
-
+<br>
 
 ## Ordem de Operações
 1. As opções definidas na linha de comandos são processadas primeiro.
@@ -103,6 +104,8 @@ A meu ver, as permissoes do directório `.ssh` e seus ficheiros devem ser as seg
    - Numa perspectiva de segurança, o servidor de SSH é que deve estabelecer os parametros requiridos para a forma de conexão por SSH. Devendo dizer aos seus utilizadores como aceder ao seu sistema.
 2. Se não forem definidas opções na linha de comandos, as opções no ficheiro de configuração do **utilizador** são processadas.
 3. Se não houver opções especificadas nos primeiros dois pontos, a configuração do ficheiro de sistema SSH vai ser processado.
+
+<br>
 
 ## Configurações do cliente SSH
 ### Exemplo de um ficheiro de configuração shh de um user.
@@ -263,6 +266,8 @@ A meu ver, as permissoes do directório `.ssh` e seus ficheiros devem ser as seg
     - Para termos o serviço iniciado no arranque: `sudo systemctl enable ssh`
     - Relembrar que em Debian, Ubuntu o binário é chamado `ssh`, em RHEL, Fedora é `sshd`
 
+<br>
+
 ### Exemplo de um ficheiro de configuração shhd de um servidor de SSH
 
 
@@ -405,6 +410,7 @@ A meu ver, as permissoes do directório `.ssh` e seus ficheiros devem ser as seg
      - desligar a permissão fazer login como root (assegurar outra conta admin no sistema.)
      - não permitir autenticação por password, é fundamental.
   
+<br>
 
 ### Estrutura do directório /etc/ssh
 
@@ -430,6 +436,7 @@ A meu ver, as permissoes do directório `.ssh` e seus ficheiros devem ser as seg
     - Notar que as chaves ssh presentes são usadas para o *fingerprint* quando os clientes se ligam a este servidor. São as chaves identificativas do servidor de SSH. Não queremos modificar estas chaves, caso contrário podemos ficar desligados do server para sempre.
     - Notar que ao clonar, ou usar uma imagem por exemplo como o OS com as chaves iguais ao exemplo, estas chaves vao ser copiadas também e vai criar problemas de rede. É necessário criar chaves novas por servidor em clones ou réplicas.
   
+<br>
 
 ## Outros
 
@@ -481,6 +488,7 @@ A meu ver, as permissoes do directório `.ssh` e seus ficheiros devem ser as seg
         - Gestor de passwords. Existem ferramentas como o ***pass***, ***gnome-keyring*** ou ***KDE Wallet***, entre outras, que permitem gerir e usar as credenciais e passphrases.
 
 
+<br>
 
 ## Bibliografia:
 ### Docs
@@ -495,3 +503,8 @@ A meu ver, as permissoes do directório `.ssh` e seus ficheiros devem ser as seg
 Learn Linux TV](https://www.youtube.com/watch?v=YS5Zh7KExvE)
   - [Simplifying SSH Key Management: Leveraging ssh config for Security and Efficiency, SANS Cyber Defense](https://www.youtube.com/watch?v=ysd7GqBf5U0)
 
+<div dir=RtL> 
+:Autor da tradução</br>
+<i>Zito Cavaleiro  </i>-   email: zcavaleiro AT protonmail DOT com</br>
+Professor de Matemática e Ciências da Natureza</br>
+Engenheiro de Automação de Tecnologias de Informação</div>
