@@ -38,21 +38,21 @@ Optei pela língua portuguesa por diversas razões. Uma delas é porque em  ingl
 
 ## Os diferentes ficheiros de configurações SSH
 
-1. O ficheiro de configuração do ***ssh daemon server***, no caso de ser um servidor SSH. Este ficheiro, específica como um cliente ssh se vai conectar/ligar a este servidor:
+1. O ficheiro de configuração do ***ssh daemon server***, no caso de ser um servidor SSH. Este ficheiro, específica como um cliente SSH se vai conectar/ligar a este servidor:
     - `etc/ssh/sshd_config`
 
-2. ***Opções nos comandos SSH*** do lado do cliente. É possivel incluir opções em formato de strings quando fazemos a ligação. Existem muitas possibilidades:
+2. ***Opções nos comandos SSH*** do lado do cliente. É possivel incluir opções em formato de "strings" quando fazemos a ligação. Existem muitas possibilidades:
     - `ssh -i ~/.ssh/mykey user@host` A opção `-i` serve para definir qual a chave a usar. Com `-o` é também possivel definir `IdentityFile` tal como `-i`. Outras opções podem ser consultadas na documentação ou *man page* do ssh_config. Mais exemplos para as opções, `-o`:
       - `PreferredAuthentications`
       - `PasswordAuthentication`
       - `PubkeyAuthentication`
       - `IdentitiesOnly`
-    - `ssh username@remote_host command_to_run`
+      - `ssh username@remote_host command_to_run`
 
 3. ***Personalizações do utilizador*** (cliente) nas configurações SSH:
-    - `~/.ssh/config`
+    - Por norma em: `~/.ssh/config`
       - Caso mais comum de uma só utilizador/entidade.
-    - `~/.sshconfig.d`
+    - Também pode ser o: `~/.sshconfig.d`
       - É um directório que contem multiplos ficheiros de configurações SSH.
       - Para o caso em que é necessário gerir diferentes ficheiros de configuração para diferentes sistemas ou tipos de sistemas, por exemplo, por grupos .
 
@@ -110,12 +110,12 @@ A meu ver, as permissoes do directório `.ssh` e seus ficheiros devem ser as seg
 ## Configurações do cliente SSH
 ### Exemplo de um ficheiro de configuração shh de um user.
 
-  - Para não termos que decorar e escrever longos comandos, é preferível manter um ficheiro local de configuração que identifica as chaves e outras opções para cada destino. Por norma, o utilizador cria ou usa o ficheiro `~/.ssh/config`. Uma boa forma de começar esse ficheiro pode ser copiando um exemplo do `ssh_config` que está em `/etc/ssh`
+  - Para não termos que decorar ou copiar e colar longos comandos, é preferível manter um ficheiro local de configuração que identifica as chaves e outras opções para cada destino. Por norma, o utilizador cria ou usa o ficheiro `~/.ssh/config`. Uma boa forma de começar esse ficheiro pode ser copiando um exemplo do `ssh_config` que está em `/etc/ssh`
 
     ```shell
     cp /etc/ssh/ssh_config ~/.ssh/config
     ```    
-  - Exemplo do ficheiro `.ssh/config`:
+  - Exemplo de um ficheiro `.ssh/config`:
 
     ```shell
     # Forma de definir regras/opções genéricas SSH
@@ -441,10 +441,10 @@ A meu ver, as permissoes do directório `.ssh` e seus ficheiros devem ser as seg
 ## Outros
 
 1. ***ssh-agent*** e ***passphrase*** 
-    -  No caso de as chaves SSH terem *passphrase*, está é necessária ser introduzida manualmente cada vez que se realiza uma comunicação. Isto pode ser entediante. Uma das formas de "automatizar", pelo menos enquanto está o terminal ou a sessao SSH aberta, é usando o ssh-agent.
-      - o ssh-agent é um mecanismo que guarda a chave e opções em memória para nos facilitar a conexão.
+    -  No caso de as chaves SSH terem *passphrase*, esta é necessária ser introduzida manualmente cada vez que se realiza uma comunicação. Isto pode ser entediante. Uma das formas de "automatizar", pelo menos enquanto está o terminal ou a sessao SSH aberta, é usando o `ssh-agent`.
+      - o `ssh-agent` é um mecanismo que guarda a chave e opções em memória para nos facilitar a conexão.
       - as versões de linux destop's vêm com o ssh-agent por default. As distribuições "server editions", sem GUI, podem não ter o ssh-agent instalado. 
-      - Para o caso dos servidores sem ssh-agent:
+      - Verificar se o `ssh-agent` está ativo:
 
 
         ```shell
@@ -453,7 +453,7 @@ A meu ver, as permissoes do directório `.ssh` e seus ficheiros devem ser as seg
 
         # deve devolver apenas uma linha do próprio comando grep
         ```
-
+    
         ```shell
         eval "$(ssh-agent)" 
 
@@ -467,7 +467,7 @@ A meu ver, as permissoes do directório `.ssh` e seus ficheiros devem ser as seg
         
         ```
 
-        Uma vez ativo, podemos adiconar uma chave ao ssh-agent
+      - Uma vez ativo, podemos adiconar uma chave ao ssh-agent
         ```shell
         ssh-add ~/.ssh/id_mykey
         ```
