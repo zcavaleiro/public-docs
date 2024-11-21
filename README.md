@@ -9,7 +9,7 @@ This repo contains links for some works I've done.
 - [É tempo de banir a publicidade baseada em vigilância](https://github.com/zcavaleiro/tempo-de-banir-a-publicidade-baseada-em-vigilancia/blob/main/README.md)
 
 ## English
-- Instalation of AWX - wip
+- [How to install AWX. Installing the AWX Operator in Kubernetes with K3s](https://github.com/zcavaleiro/how-to-install-awx-installing-the-awx-operator-in-kubernetes-with-k3s/blob/main/README.md)
 - [My dotfiles](https://github.com/zcavaleiro/.dotfiles)
 - [Portfolio example](https://zcavaleiro.github.io/) 
-- ansible - wip
+- Ansible for homelab demo - wip
